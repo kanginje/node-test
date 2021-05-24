@@ -35,4 +35,17 @@ app.post('/message', (req, res) => {
   res.json(data2);
 });
 
+
+app.post('/post', (req, res) => {
+  var inputData;
+  req.on('data', (data) => {
+    inputData = JSON.parse(data);
+  });
+  req.on('end', () => {
+    console.log(inputData);
+  });
+  res.write("OK!");
+  res.end();
+}); 
+
 app.listen(3000, () => console.log('node on 3000'));
