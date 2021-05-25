@@ -13,6 +13,8 @@ app.get('/keyboard', (req, res) => {
 
 let data2;
 
+app.set('port',3000);
+
 app.post('/message', (req, res) => {
   const question = req.body.userRequest.utterance;
   const goMain = '처음으로';
@@ -74,5 +76,10 @@ app.post('/post', (req, res) => {
    res.end();
 });
 
+const WebSocket = require('./socket');
 
-app.listen(3000, () => console.log('node on 3000'));
+const server = app.listen(app.get('port'), () => {
+  console.log(app.get('port'), '번 포트에서 대기 중');
+});
+
+WebSocket(server);
