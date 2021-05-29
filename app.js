@@ -9,7 +9,7 @@ app.use(bodyParser.json());
 
 app.set('port',3000);
 
-app.get('/keyboard', (req, res) => {
+app.post('/keyboard', (req, res) => {
   const data1 = {'type': 'text'}
   res.json(data1);
 });
