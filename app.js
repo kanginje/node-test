@@ -9,7 +9,7 @@ app.use(express.json());
 
 app.set('port',3000);
 
-app.post('/location', (req, res) => {
+app.get('/location', (req, res) => {
   const data1 = {'type': 'text'}
   res.json(data1);
 });
@@ -45,5 +45,5 @@ app.use((req, res) => {
 });*/
 
 app.listen(app.get('port'), ()=> {
- console.log("익스프레스로 웹 서버를 실행함 : "+ app.get('port')); 
+ console.log(`port number is ${app.get('port')}`); 
 });
