@@ -1,7 +1,9 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
-const morgan = require('morgan')
+const morgan = require('morgan');
+const io = require('socket.io');
+
 
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({extended:false}));
@@ -9,11 +11,23 @@ app.use(express.json());
 
 app.set('port',3000);
 
-app.get('/location', (req, res) => {
+app.post('/location', (req, res) => {
   const data1 = {'type': 'text'}
   res.json(data1);
 });
 
+io.on('connection', (socket) => {
+  console.log('connection success');
+  socket.on('disconnect', () => {
+    console.log('disconnect');
+  });
+
+  socket.on('msg', (data) => {
+    console.log(data);
+  })
+});
+
+/*
 app.post('/transfer', (req,res) => {
   let inputData;
   
@@ -25,6 +39,7 @@ app.post('/transfer', (req,res) => {
     console.log(`user_id : ${inputData.user_id}, name: ${inputData.name}`);
   })
 })
+*/
 /*
 app.use((req, res) => {
 
