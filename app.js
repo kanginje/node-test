@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
-const socketio = require('socket.io');
+//const socketio = require('socket.io');
 
 
 app.use(morgan('dev'));
@@ -65,6 +65,6 @@ app.use((req, res) => {
 });*/
 
 
-const server = app.listen(app.get('port'), ()=> {
+app.listen(app.get('port'), ()=> {
   console.log(`port number is ${app.get('port')}`); 
  });
