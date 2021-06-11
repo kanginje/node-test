@@ -19,24 +19,28 @@ app.post('/transfer', (req,res) => {
   id = req.body.key;
   data = req.body.value;
 
-  console.log(`key : ${id}, value : ${data}`);
-});
+
 jsondata ={
   "version":"2.0",
   "template" : {
     "outputs": [
       {
-        "simpleText": data
+        "simpleText": {
+          "text": data
+        }
       }
     ]
   }
-}
+};
 
+  console.log(`key : ${id}, value : ${data}`);
+});
 
 
 app.post('/location', (req, res) => {
   res.json(jsondata);
 });
+
 /*
 const io = socketio(server);
 
