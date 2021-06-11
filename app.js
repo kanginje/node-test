@@ -13,17 +13,19 @@ app.set('port',3000);
 let key;
 let value;
 
+let data;
 
 app.post('/transfer', (req,res) => {
   key = req.body.key;
   value = req.body.value;
 
   console.log(`key : ${key}, value : ${value}`);
+  data = {key : value}
 })
 
 
 app.post('/location', (req, res) => {
-  res.send(value);
+  res.json(data);
 });
 /*
 const io = socketio(server);
