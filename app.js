@@ -12,17 +12,13 @@ app.use(express.json());
 app.set('port',3000);
 
 
-const server = app.listen(app.get('port'), ()=> {
-  console.log(`port number is ${app.get('port')}`); 
- });
-
 
 app.post('/location', (req, res) => {
   const data1 = {'type': 'text'}
   res.json(data1);
 });
 
-
+/*
 const io = socketio(server);
 
 io.on('connection', (socket) => {
@@ -35,8 +31,8 @@ io.on('connection', (socket) => {
     console.log(data);
   })
 });
+*/
 
-/*
 app.post('/transfer', (req,res) => {
   let inputData;
   
@@ -48,7 +44,7 @@ app.post('/transfer', (req,res) => {
     console.log(`user_id : ${inputData.user_id}, name: ${inputData.name}`);
   })
 })
-*/
+
 /*
 app.use((req, res) => {
 
@@ -67,3 +63,8 @@ app.use((req, res) => {
   res.send(approve);
 
 });*/
+
+
+const server = app.listen(app.get('port'), ()=> {
+  console.log(`port number is ${app.get('port')}`); 
+ });
