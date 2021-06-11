@@ -18,6 +18,13 @@ app.post('/location', (req, res) => {
   res.json(data1);
 });
 
+app.post('/transfer', (req,res) => {
+  let key = req.body.key;
+  let value = req.body.value;
+
+  console.log(`key : ${key}, value : ${value}`);
+})
+
 /*
 const io = socketio(server);
 
@@ -31,7 +38,6 @@ io.on('connection', (socket) => {
     console.log(data);
   })
 });
-*/
 
 app.post('/transfer', (req,res) => {
   let inputData;
@@ -44,7 +50,7 @@ app.post('/transfer', (req,res) => {
     console.log(`user_id : ${inputData.user_id}, name: ${inputData.name}`);
   })
 })
-
+*/
 /*
 app.use((req, res) => {
 
