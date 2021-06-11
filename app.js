@@ -10,21 +10,21 @@ app.use(bodyParser.urlencoded({extended:false}));
 app.use(express.json());
 
 app.set('port',3000);
+let key;
+let value;
 
-
-
-app.post('/location', (req, res) => {
-  const data1 = {'type': 'text'}
-  res.json(data1);
-});
 
 app.post('/transfer', (req,res) => {
-  let key = req.body.key;
-  let value = req.body.value;
+  key = req.body.key;
+  value = req.body.value;
 
   console.log(`key : ${key}, value : ${value}`);
 })
 
+
+app.post('/location', (req, res) => {
+  res.send(value);
+});
 /*
 const io = socketio(server);
 
