@@ -20,8 +20,20 @@ app.post('/transfer', (req,res) => {
   data = req.body.value;
 
   console.log(`key : ${id}, value : ${data}`);
-  jsondata = {id : data}
-})
+});
+jsondata ={
+  "version":"2.0",
+  "template" : {
+    "outputs": [
+      {
+        "simpleText": {
+          "text" : data
+        }
+      }
+    ]
+  }
+}
+
 
 
 app.post('/location', (req, res) => {
