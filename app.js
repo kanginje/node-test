@@ -26,9 +26,7 @@ jsondata ={
   "template" : {
     "outputs": [
       {
-        "simpleText": {
-          "text" : data
-        }
+        "simpleText": data
       }
     ]
   }
