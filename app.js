@@ -37,7 +37,7 @@ jsondata ={
 });
 
 
-app.post('/location', (req, res) => {
+app.post('/height', (req, res) => {
   res.json(jsondata);
 });
 
