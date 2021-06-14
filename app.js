@@ -15,10 +15,10 @@ let jsondata_h;
 let jsondata_r;
 let data;
 
+
 app.post('/transfer', (req,res) => {
   id = req.body.key;
   data = req.body.value;
-
 
 jsondata_h ={
   "version":"2.0",
@@ -45,9 +45,11 @@ jsondata_r ={
     ]
   }
 };
-  console.log(`key : ${id}, value : ${data}`);
-});
 
+
+  console.log(`key : ${id}, value : ${data}`);
+  res.send('1');
+});
 
 app.post('/height', (req, res) => {
   res.json(jsondata_h);
@@ -55,7 +57,24 @@ app.post('/height', (req, res) => {
 
 app.post('/risk', (req,res) => {
   res.json(jsondata_r);
-})
+});
+
+
+
+
+app.listen(app.get('port'), ()=> {
+  console.log(`port number is ${app.get('port')}`); 
+ });
+
+
+
+
+
+
+
+
+
+
 /*
 const io = socketio(server);
 
@@ -102,6 +121,3 @@ app.use((req, res) => {
 });*/
 
 
-app.listen(app.get('port'), ()=> {
-  console.log(`port number is ${app.get('port')}`); 
- });
