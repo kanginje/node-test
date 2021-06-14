@@ -11,8 +11,8 @@ app.use(express.json());
 
 app.set('port',3000);
 let id;
-let jsondata;
-
+let jsondata_h;
+let jsondata_r;
 let data;
 
 app.post('/transfer', (req,res) => {
@@ -20,7 +20,20 @@ app.post('/transfer', (req,res) => {
   data = req.body.value;
 
 
-jsondata ={
+jsondata_h ={
+  "version":"2.0",
+  "template" : {
+    "outputs": [
+      {
+        "simpleText": {
+          "text": id
+        }
+      }
+    ]
+  }
+};
+
+jsondata_r ={
   "version":"2.0",
   "template" : {
     "outputs": [
@@ -32,15 +45,17 @@ jsondata ={
     ]
   }
 };
-
   console.log(`key : ${id}, value : ${data}`);
 });
 
 
 app.post('/height', (req, res) => {
-  res.json(jsondata);
+  res.json(jsondata_h);
 });
 
+app.post('/risk', (req,res) => {
+  res.json(jsondata_r);
+})
 /*
 const io = socketio(server);
 
